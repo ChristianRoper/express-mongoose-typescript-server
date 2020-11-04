@@ -1,7 +1,7 @@
 import dotenv from 'dotenv'
 import express from "express"
 import connectDB from './db';
-import { auth, users } from "./routes/api"
+import { auth, profile, users } from "./routes/api"
 import cors from 'cors'
 
 dotenv.config();
@@ -22,6 +22,7 @@ app.get('/', (req, res) => res.send('API Running'))
 
 // Define Routes
 app.use('/api/auth', auth)
+app.use('/api/profile', profile)
 app.use('/api/users', users)
 
 const PORT = process.env.SERVER_PORT || 5000;
